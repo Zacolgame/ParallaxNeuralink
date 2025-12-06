@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Parallax Neural Link (神经链接)",
+  "version": "1.0",
+  "description": "将生产力游戏化。通过与 Parallax AI 交互获取算力点数。",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "打开神经链接"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel.html"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

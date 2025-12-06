@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Neural Link</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tabs.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="status-bar">
+                <span id="connection-status" class="status-indicator offline">● 离线</span>
+                <span class="tech-level">等级 1</span>
+            </div>
+            <div class="score-display">
+                <div class="label">当前算力 (COMPUTING POWER)</div>
+                <div class="value-container">
+                    <span id="score-value" class="value">0</span>
+                    <span id="score-multiplier" class="multiplier">x1.0</span>
+                </div>
+            </div>
+        </header>
+
+        <main id="game-interface">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="chat-view">神经链接</button>
+                <button class="tab-btn" data-tab="achievements-view">成就</button>
+                <button class="tab-btn" data-tab="rules-view">规则</button>
+                <button class="tab-btn" data-tab="settings-view">设置</button>
+            </div>
+
+            <!-- Chat View -->
+            <div id="chat-view" class="view-content active">
+                <div id="chat-history" class="chat-history">
+                    <div class="message system">系统初始化完成。神经链接已就绪。</div>
+                </div>
+                
+                <div class="input-area">
+                    <textarea id="chat-input" placeholder="输入指令或数据..."></textarea>
+                    <button id="send-btn">发送</button>
+                </div>
+
+                <div class="actions-area">
+                    <button id="absorb-btn" class="action-btn">智能总结当前页面 (Summarize)</button>
+                </div>
+            </div>
+
+            <!-- Achievements View -->
+            <div id="achievements-view" class="view-content">
+                <div class="achievements-list" id="achievements-list">
+                    <!-- Items injected by JS -->
+                </div>
+            </div>
+
+            <!-- Rules View -->
+            <div id="rules-view" class="view-content">
+                <div class="rules-container">
+                    <h3>// 神经协议 v1.0</h3>
+                    <!-- ... rules content ... -->
+                    <div class="rule-item">
+                        <div class="rule-title">1. 算力获取 (Mining)</div>
+                        <p>你的每一次交互都在挖掘价值。算力(Score) 源于 <strong>AI Token 消耗</strong>。</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-title">2. 节点与总结 (Nodes)</div>
+                        <p>点击 <strong>"智能总结"</strong> 可扫描当前网页 DOM 节点并进行 AI 分析。</p>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-title">3. 增效倍率 (Multiplier)</div>
+                        <p>基础倍率 1.0x。<br>• 每一个 <strong>接入节点</strong> 提供 <strong>+1.0x</strong> 巨额加成。<br>• 解锁 <strong>成就档案</strong> 每项科技提供 <strong>+0.2x</strong> 永久增效。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settings-view" class="view-content">
+                <div class="settings-container">
+                    <h3>// 系统配置</h3>
+                    
+                    <div class="setting-item">
+                        <div class="setting-label">手动同步节点状态</div>
+                        <div class="setting-desc">如果自动同步失败，请打开 Parallax 仪表盘页面，然后点击下方按钮强制捕获节点数量并缓存。</div>
+                        <button id="manual-sync-btn" class="action-btn">从当前页面同步 (Force Sync)</button>
+                        <div id="sync-status-msg" class="status-msg"></div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-label">当前缓存状态</div>
+                        <div class="cache-display">
+                            <span>已缓存节点数:</span>
+                            <span id="cached-count-display" class="highlight">--</span>
+                        </div>
+                        <button id="clear-cache-btn" class="secondary-btn">清除缓存</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </main>
+
+        <footer>
+            <div class="controls">
+                <button id="debug-ping-btn">连接测试</button>
+                <button id="reset-btn">重置系统</button>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
